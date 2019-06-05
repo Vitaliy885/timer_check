@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>timer js</title>
+</head>
+<style>
+.clock{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+.timer__item{
+	display: inline-block;
+	margin: 0 auto;
+	font-size: 38px;
+	color: #fff;
+	border-radius: 20%;
+	margin: auto 5px;
+	letter-spacing: 2px;
+	width: 40px;
+	padding: 10px;
+	background: linear-gradient(to top, #b5bdc8 0%, #28343b 36%, #828c95 100%);
+}
+</style>
+<body>
+	
+
+	<div class="counter">
+		<div class="clock">
+			<div class="timer__item">
+				<span class="day"></span>
+			</div>
+			<div class="timer__item">
+				<span class="hour"></span>
+			</div>
+			<div class="timer__item">
+				<span class="minutes"></span>
+			</div>
+			<div class="timer__item">
+				<span class="seconds"></span>
+			</div>
+		</div>
+	</div>
+
+	<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jun 5, 2019 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+   document.querySelector('.day').innerHTML = days;
+   document.querySelector('.hour').innerHTML = hours;
+   document.querySelector('.minutes').innerHTML = minutes;
+   document.querySelector('.seconds').innerHTML = seconds;
+
+
+
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+  	clearInterval(x);
+  	document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+
+</body>
+</html>
